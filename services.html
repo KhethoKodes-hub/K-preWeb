@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - K-Pre Projects & Events</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+        
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #f59e0b, #ea580c);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mb-6 {
+            margin-bottom: 3rem;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            background: linear-gradient(to bottom right, #f59e0b, #ea580c);
+            padding: 8px;
+            border-radius: 8px;
+        }
+        
+        .logo-text {
+            color: white;
+        }
+        
+        .logo h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+        
+        .logo p {
+            font-size: 0.75rem;
+            color: #fcd34d;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            text-transform: capitalize;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #f59e0b;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-menu {
+            display: none;
+            background: #0f172a;
+            border-top: 1px solid #1e293b;
+            padding: 20px;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 12px 0;
+            text-transform: capitalize;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-menu a:hover {
+            color: #f59e0b;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&h=900&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+        }
+        
+        .page-header-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Services Overview */
+        .services-overview {
+            background: white;
+        }
+        
+        .services-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .services-badge {
+            display: inline-block;
+            background: linear-gradient(to right, #f59e0b, #ea580c);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .services-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+        }
+        
+        .services-header p {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        
+        .service-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #f59e0b, #ea580c);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(to bottom right, #f59e0b, #ea580c);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+        
+        .service-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: #475569;
+        }
+        
+        .service-features li i {
+            color: #f59e0b;
+            margin-top: 4px;
+        }
+        
+        /* Process Section */
+        .process-section {
+            background: linear-gradient(to bottom right, #f1f5f9, #e2e8f0);
+            position: relative;
+        }
+        
+        .process-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        .process-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .process-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+        }
+        
+        .process-header p {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .process-step {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(to bottom right, #f59e0b, #ea580c);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .process-step h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+        
+        .process-step p {
+            color: #475569;
+            line-height: 1.6;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-section {
+            background: white;
+        }
+        
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .portfolio-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+        }
+        
+        .portfolio-header p {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .portfolio-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.7));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-item:hover::before {
+            opacity: 1;
+        }
+        
+        .portfolio-category {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-weight: 600;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-category {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Testimonial Section */
+        .testimonial {
+            background: linear-gradient(to bottom right, #fef3c7, #fed7aa);
+            position: relative;
+        }
+        
+        .testimonial-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&h=900&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        .testimonial-content {
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-quote {
+            font-size: 3rem;
+            color: #f59e0b;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-text {
+            font-size: 1.5rem;
+            color: #475569;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(to right, #f59e0b, #ea580c);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+        }
+        
+        .faq-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .faq-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+        }
+        
+        .faq-header p {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 24px 0;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .faq-question h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        
+        .faq-toggle {
+            color: #f59e0b;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            color: #475569;
+            line-height: 1.6;
+            margin-top: 16px;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        
+        /* Footer */
+        footer {
+            background: #020617;
+            color: white;
+            padding: 48px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .footer-logo-icon {
+            background: linear-gradient(to bottom right, #f59e0b, #ea580c);
+            padding: 8px;
+            border-radius: 8px;
+        }
+        
+        .footer-logo h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .footer-logo p {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+        
+        .footer-text {
+            text-align: right;
+        }
+        
+        .footer-text p {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            
+            .services-header h2, .process-header h2, .portfolio-header h2, .faq-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+            
+            .footer-text {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .services-header h2, .process-header h2, .portfolio-header h2, .faq-header h2 {
+                font-size: 2rem;
+            }
+            
+            .testimonial-text {
+                font-size: 1.25rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
+            .service-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-sparkles" style="color: white; font-size: 1.5rem;"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>K-Pre</h1>
+                    <p>Projects & Events</p>
+                </div>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content container">
+            <h1>Our Services</h1>
+            <p>Comprehensive event solutions tailored to bring your vision to life with precision and creativity</p>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section services-overview">
+        <div class="container">
+            <div class="services-header">
+                <span class="services-badge">What We Offer</span>
+                <h2>Services Crafted for Perfection</h2>
+                <p>From concept to execution, we handle every detail with expertise and flair, ensuring your event is nothing short of extraordinary</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tasks" style="color: white; font-size: 2.5rem;"></i>
+                    </div>
+                    <h3>Project Management</h3>
+                    <p>Our project management services are at the core of our offerings. Entrust us with your vision, and we will oversee your event or function from its conceptualization through to project closure.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> End-to-end event oversight</li>
+                        <li><i class="fas fa-check"></i> Conference and business dinner management</li>
+                        <li><i class="fas fa-check"></i> Team building and executive retreats</li>
+                        <li><i class="fas fa-check"></i> Press conferences and company ceremonies</li>
+                        <li><i class="fas fa-check"></i> Awareness campaigns and sport events</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt" style="color: white; font-size: 2.5rem;"></i>
+                    </div>
+                    <h3>Event Management & Décor Design</h3>
+                    <p>Elevate your event with our bespoke event management and décor design services. Tailored specifically to your business needs, we focus on meticulous planning and execution.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Venue sourcing and selection</li>
+                        <li><i class="fas fa-check"></i> Comprehensive event scheduling</li>
+                        <li><i class="fas fa-check"></i> Strategic budget management</li>
+                        <li><i class="fas fa-check"></i> Custom décor design and implementation</li>
+                        <li><i class="fas fa-check"></i> Theme development and execution</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils" style="color: white; font-size: 2.5rem;"></i>
+                    </div>
+                    <h3>Catering Solutions</h3>
+                    <p>K-Pre Projects specializes in crafting fresh, high-quality, and portable meal solutions for any occasion. We provide nutritious and tasty options that fit seamlessly into your busy lifestyle.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Breakfast and lunch packs</li>
+                        <li><i class="fas fa-check"></i> Snack and travel packs</li>
+                        <li><i class="fas fa-check"></i> Fresh, high-quality ingredients</li>
+                        <li><i class="fas fa-check"></i> Balanced, nutritious meals</li>
+                        <li><i class="fas fa-check"></i> Perfect for campaigns, travel and sport events</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chair" style="color: white; font-size: 2.5rem;"></i>
+                    </div>
+                    <h3>Events Décor & Equipment Hire</h3>
+                    <p>For those who wish to take a more hands-on approach to their event's design, K-Pre offers an extensive selection of décor options and event equipment for hire.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Variety of linens, tables, and chairs</li>
+                        <li><i class="fas fa-check"></i> Diverse styles of stretched tents</li>
+                        <li><i class="fas fa-check"></i> Assortment of décor items for any theme</li>
+                        <li><i class="fas fa-check"></i> Delivery and setup services</li>
+                        <li><i class="fas fa-check"></i> Flexible rental periods</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-birthday-cake" style="color: white; font-size: 2.5rem;"></i>
+                    </div>
+                    <h3>Special Party Events</h3>
+                    <p>Transform any celebration into a magical occasion with K-Pre's specialized party events services. We cater to creating memorable moments that will be cherished forever.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Themed parties and celebrations</li>
+                        <li><i class="fas fa-check"></i> Baby showers and gender reveals</li>
+                        <li><i class="fas fa-check"></i> Wedding and engagement parties</li>
+                        <li><i class="fas fa-check"></i> Anniversary celebrations</li>
+                        <li><i class="fas fa-check"></i> Custom party planning</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-music" style="color: white; font-size: 2.5rem;"></i>
+                    </div>
+                    <h3>Entertainment Services</h3>
+                    <p>Our personalized entertainment services are crafted to enchant and delight, ensuring that each special day is exceptionally celebrated with the perfect atmosphere.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> DJ and music coordination</li>
+                        <li><i class="fas fa-check"></i> Live performers and artists</li>
+                        <li><i class="fas fa-check"></i> Interactive entertainment options</li>
+                        <li><i class="fas fa-check"></i> MC and hosting services</li>
+                        <li><i class="fas fa-check"></i> Custom entertainment packages</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process-section">
+        <div class="process-bg"></div>
+        
+        <div class="container">
+            <div class="process-header">
+                <span class="services-badge">Our Process</span>
+                <h2>How We Bring Your Vision to Life</h2>
+                <p>Our structured approach ensures every event is executed with precision and creativity</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>We begin by understanding your vision, requirements, and budget to create a tailored event plan.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Planning</h3>
+                    <p>Our team develops a comprehensive strategy, including timelines, vendors, and creative concepts.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Execution</h3>
+                    <p>We bring your event to life with meticulous attention to detail and seamless coordination.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Follow-up</h3>
+                    <p>After the event, we gather feedback and ensure all aspects were delivered to your satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio-section">
+        <div class="container">
+            <div class="portfolio-header">
+                <span class="services-badge">Our Work</span>
+                <h2>Event Portfolio</h2>
+                <p>A glimpse into the diverse events we've brought to life with creativity and precision</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    Corporate Events
+                    <div class="portfolio-category">Business Conferences</div>
+                </div>
+                <div class="portfolio-item">
+                    Themed Parties
+                    <div class="portfolio-category">Special Celebrations</div>
+                </div>
+                <div class="portfolio-item">
+                    Wedding Celebrations
+                    <div class="portfolio-category">Memorable Moments</div>
+                </div>
+                <div class="portfolio-item">
+                    Team Building
+                    <div class="portfolio-category">Corporate Retreats</div>
+                </div>
+                <div class="portfolio-item">
+                    Catering Events
+                    <div class="portfolio-category">Food & Hospitality</div>
+                </div>
+                <div class="portfolio-item">
+                    Equipment Hire
+                    <div class="portfolio-category">Event Setup</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section">
+        <div class="container">
+            <div class="faq-header">
+                <span class="services-badge">FAQ</span>
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our services and processes</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How far in advance should I book your services?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We recommend booking at least 4-6 weeks in advance for smaller events and 3-6 months for larger corporate events or weddings. However, we understand that sometimes events come up quickly, so we'll always do our best to accommodate last-minute requests.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you handle events outside of Kathu?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we regularly service events throughout the Northern Cape and can arrange services in other regions. Travel fees may apply for locations beyond a 50km radius from Kathu.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can you work within my budget?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We pride ourselves on creating exceptional events that align with your budget. During our initial consultation, we'll discuss your budget parameters and create a customized plan that delivers maximum value.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What makes K-Pre different from other event companies?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our unique combination of project management expertise, creative flair, and personalized service sets us apart. As a local Kathu business, we have strong community connections and understand the specific needs of our region. Our founder's background in both financial management and creative events gives us a unique perspective on delivering successful events.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you provide services for both corporate and private events?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we specialize in both corporate and private events. From business conferences and team building to weddings and birthday parties, we have the expertise to make any event memorable and successful.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="section testimonial">
+        <div class="testimonial-bg"></div>
+        
+        <div class="container">
+            <div class="testimonial-content">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">K-Pre is my go-to place to get things done, quickly and efficiently. Not having to worry if things will be executed exactly as I want it and on time, is the reason I only use them.</p>
+                <div class="testimonial-author">Online Coaching & Communications</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Plan Your Perfect Event?</h2>
+            <p>Contact us today for a complimentary consultation and let's start bringing your vision to life</p>
+            <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <i class="fas fa-sparkles" style="color: white; font-size: 1.5rem;"></i>
+                    </div>
+                    <div>
+                        <h3>K-Pre Projects & Events</h3>
+                        <p>Pty Ltd • Reg: 2020/857526/07</p>
+                    </div>
+                </div>
+                <div class="footer-text">
+                    <p>© 2025 K-Pre Projects & Events. All rights reserved.</p>
+                    <p>Crafted with passion in Kathu, Northern Cape</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            
+            // Change icon based on menu state
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // FAQ toggle functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other FAQ items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Set active navigation link
+        const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === 'services.html') {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

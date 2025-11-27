@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - K-Pre Projects & Events</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+        
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #f59e0b, #ea580c);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mb-6 {
+            margin-bottom: 3rem;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            background: linear-gradient(to bottom right, #f59e0b, #ea580c);
+            padding: 8px;
+            border-radius: 8px;
+        }
+        
+        .logo-text {
+            color: white;
+        }
+        
+        .logo h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+        
+        .logo p {
+            font-size: 0.75rem;
+            color: #fcd34d;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            text-transform: capitalize;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #f59e0b;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-menu {
+            display: none;
+            background: #0f172a;
+            border-top: 1px solid #1e293b;
+            padding: 20px;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 12px 0;
+            text-transform: capitalize;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-menu a:hover {
+            color: #f59e0b;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&h=900&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+        }
+        
+        .page-header-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-story {
+            background: linear-gradient(to bottom right, #f1f5f9, #e2e8f0);
+            position: relative;
+        }
+        
+        .about-story-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1600&h=900&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .about-badge {
+            display: inline-block;
+            background: linear-gradient(to right, #f59e0b, #ea580c);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about p {
+            font-size: 1.125rem;
+            color: #475569;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d97706;
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-card {
+            background: linear-gradient(to bottom right, #f59e0b, #ea580c);
+            border-radius: 16px;
+            padding: 32px;
+            color: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .highlight-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-card ul {
+            list-style: none;
+        }
+        
+        .highlight-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        /* Owner Section */
+        .owner-section {
+            background: white;
+        }
+        
+        .owner-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .owner-image {
+            position: relative;
+        }
+        
+        .owner-img-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(to bottom right, #f1f5f9, #e2e8f0);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 1.125rem;
+        }
+        
+        .owner-details h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+        
+        .owner-title {
+            color: #f59e0b;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+        
+        .owner-details p {
+            font-size: 1.125rem;
+            color: #475569;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .owner-qualities {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 2rem;
+        }
+        
+        .quality-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .quality-icon {
+            width: 40px;
+            height: 40px;
+            background: #fef3c7;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d97706;
+        }
+        
+        /* Strengths Section */
+        .strengths-section {
+            background: linear-gradient(to bottom right, #0f172a, #1e293b);
+            position: relative;
+        }
+        
+        .strengths-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&h=900&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+        }
+        
+        .strengths-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .strengths-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .strengths-header p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        .strength-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+        }
+        
+        .strength-card:hover {
+            border-color: #f59e0b;
+            transform: translateY(-5px);
+        }
+        
+        .strength-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(to bottom right, #f59e0b, #ea580c);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .strength-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .strength-card p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+        
+        /* Future Plans Section */
+        .future-plans {
+            background: white;
+        }
+        
+        .future-plans-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .future-plans-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+        }
+        
+        .future-plans-header p {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        
+        .plan-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 32px;
+            border-left: 4px solid #f59e0b;
+            transition: all 0.3s ease;
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .plan-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(to bottom right, #f59e0b, #ea580c);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .plan-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+        
+        .plan-card p {
+            color: #475569;
+            line-height: 1.6;
+        }
+        
+        /* Testimonial Section */
+        .testimonial {
+            background: linear-gradient(to bottom right, #fef3c7, #fed7aa);
+            position: relative;
+        }
+        
+        .testimonial-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&h=900&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        .testimonial-content {
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-quote {
+            font-size: 3rem;
+            color: #f59e0b;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-text {
+            font-size: 1.5rem;
+            color: #475569;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(to right, #f59e0b, #ea580c);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            background: #020617;
+            color: white;
+            padding: 48px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .footer-logo-icon {
+            background: linear-gradient(to bottom right, #f59e0b, #ea580c);
+            padding: 8px;
+            border-radius: 8px;
+        }
+        
+        .footer-logo h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .footer-logo p {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+        
+        .footer-text {
+            text-align: right;
+        }
+        
+        .footer-text p {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .strengths-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about h2, .strengths-header h2, .future-plans-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .owner-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .strengths-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .owner-qualities {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+            
+            .footer-text {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .about h2, .strengths-header h2, .future-plans-header h2 {
+                font-size: 2rem;
+            }
+            
+            .testimonial-text {
+                font-size: 1.25rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-sparkles" style="color: white; font-size: 1.5rem;"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>K-Pre</h1>
+                    <p>Projects & Events</p>
+                </div>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content container">
+            <h1>About K-Pre</h1>
+            <p>Discover our journey, our passion, and the vision that drives us to create unforgettable experiences</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="story" class="section about-story">
+        <div class="about-story-bg"></div>
+        
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <span class="about-badge">Our Story</span>
+                    <h2>Innovation Born in the Heart of Kathu</h2>
+                    <p>In the heart of the bustling mining town of Kathu in the Northern Cape, K-Pre Projects & Events emerges as a beacon of innovation and determination within the Events Management Industry.</p>
+                    <p>Founded in May 2019 by the visionary Enne-iles Pretorius, this dynamic company has quickly transcended its initial focus on children's parties to become a multifaceted enterprise. Today, it specializes in a broad spectrum of services including event management, décor, project management, business management, and supplies, catering to a diverse clientele.</p>
+                    <p>From its inception, K-Pre Projects & Events has been fuelled by a relentless drive to exceed client expectations and achieve new heights of success. Despite its youth, the company has already made significant strides in reshaping the landscape of events management.</p>
+                    <p>Navigating the tumultuous waters of the COVID-19 pandemic, K-Pre Projects & Events demonstrated resilience and adaptability, not only surviving but thriving amid global challenges. This period of adversity catalysed the expansion of their service offerings to encompass larger functions and corporate events, proving that obstacles can pave the way for growth and innovation.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-card">
+                            <div class="stat-number">2019</div>
+                            <div>Founded</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">6+</div>
+                            <div>Team Members</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="highlight-card">
+                        <i class="fas fa-award" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                        <h3>Our Mission</h3>
+                        <p style="margin-bottom: 1.5rem;">To transform visions into unforgettable experiences through creativity, precision, and unwavering dedication to excellence.</p>
+                        <h3 style="margin-top: 1.5rem;">Our Vision</h3>
+                        <p>To establish K-Pre Projects & Events as the premier events management company in the Northern Cape and beyond, known for innovation, sustainability, and community impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Owner Section -->
+    <section id="owner" class="section owner-section">
+        <div class="container">
+            <div class="owner-content">
+                <div class="owner-image">
+                    <div class="owner-img-placeholder">
+                        <i class="fas fa-user" style="font-size: 4rem;"></i>
+                    </div>
+                </div>
+                <div class="owner-details">
+                    <span class="about-badge">Our Leader</span>
+                    <h2>Enne-iles Pretorius</h2>
+                    <p class="owner-title">Founder & Visionary</p>
+                    <p>Enne-iles Pretorius is the visionary force and founding spirit behind K-Pre Projects and Events. With a solid educational foundation in Financial Accounting and Project Management, Enne-iles combines her technical expertise with an inherent creative flair and an unyielding drive for excellence.</p>
+                    <p>This unique blend of skills allows her to oversee projects and events with a meticulous eye, ensuring that each one is executed with the utmost professionalism and efficiency. Under her leadership, K-Pre Projects and Events thrives on a culture of dedication, reliability, and loyalty.</p>
+                    <p>Beyond her professional achievements, Enne-iles is a devoted mother to two energetic children. Her experiences in parenthood have honed her skills in multitasking, efficiency, and responsibility, further enriching her approach to business and client service.</p>
+                    
+                    <div class="owner-qualities">
+                        <div class="quality-item">
+                            <div class="quality-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h4>Innovative</h4>
+                                <p>Creative problem-solving</p>
+                            </div>
+                        </div>
+                        <div class="quality-item">
+                            <div class="quality-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div>
+                                <h4>Passionate</h4>
+                                <p>Driven by excellence</p>
+                            </div>
+                        </div>
+                        <div class="quality-item">
+                            <div class="quality-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4>Reliable</h4>
+                                <p>Trusted by clients</p>
+                            </div>
+                        </div>
+                        <div class="quality-item">
+                            <div class="quality-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h4>Leader</h4>
+                                <p>Inspires her team</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strengths Section -->
+    <section id="strengths" class="section strengths-section">
+        <div class="strengths-bg"></div>
+        
+        <div class="container">
+            <div class="strengths-header">
+                <span class="about-badge">Our Strengths</span>
+                <h2>Why Clients Choose K-Pre</h2>
+                <p>Our commitment to excellence and innovation sets us apart in the events management industry</p>
+            </div>
+
+            <div class="strengths-grid">
+                <div class="strength-card">
+                    <div class="strength-icon">
+                        <i class="fas fa-fire" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                    <h3>Passionate Leadership</h3>
+                    <p>At the heart of K-Pre Projects & Events is a passionate and committed leader whose dedication drives our team toward excellence in every event we manage.</p>
+                </div>
+                
+                <div class="strength-card">
+                    <div class="strength-icon">
+                        <i class="fas fa-star" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                    <h3>Stellar Reputation</h3>
+                    <p>Our consistently positive customer reviews highlight our commitment to quality and customer satisfaction, building trust and confidence with our clients.</p>
+                </div>
+                
+                <div class="strength-card">
+                    <div class="strength-icon">
+                        <i class="fas fa-check-circle" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                    <h3>Proven Excellence</h3>
+                    <p>We have a track record of delivering exceptional event management services, validated by our satisfied clientele and successful events over the years.</p>
+                </div>
+                
+                <div class="strength-card">
+                    <div class="strength-icon">
+                        <i class="fas fa-map-marker-alt" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                    <h3>Strong Local Presence</h3>
+                    <p>K-Pre Projects & Events is an established brand within the local community, known as a reliable and high-quality service provider in the industry.</p>
+                </div>
+                
+                <div class="strength-card">
+                    <div class="strength-icon">
+                        <i class="fas fa-user-tie" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                    <h3>Unwavering Professionalism</h3>
+                    <p>Professionalism is the cornerstone of our operations, ensuring that every interaction and service delivery is conducted with respect, integrity, and efficiency.</p>
+                </div>
+                
+                <div class="strength-card">
+                    <div class="strength-icon">
+                        <i class="fas fa-rocket" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                    <h3>Innovation at Core</h3>
+                    <p>Innovation drives us forward, seamlessly transitioning from managing small kiddie parties to orchestrating larger functions and corporate events with creativity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Plans Section -->
+    <section id="future" class="section future-plans">
+        <div class="container">
+            <div class="future-plans-header">
+                <span class="about-badge">Our Vision</span>
+                <h2>Future Plans & Growth</h2>
+                <p>We're constantly evolving to meet the changing needs of our clients and community</p>
+            </div>
+
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-number">1</div>
+                    <h3>Hybrid Events Expansion</h3>
+                    <p>Adapt to the changing landscape of events by integrating virtual and hybrid event management services, combining creative expertise with cutting-edge technology.</p>
+                </div>
+                
+                <div class="plan-card">
+                    <div class="plan-number">2</div>
+                    <h3>Community Projects</h3>
+                    <p>Implementation of community projects and programs aimed at addressing specific needs through collaboration, transparency, and sustainable impact.</p>
+                </div>
+                
+                <div class="plan-card">
+                    <div class="plan-number">3</div>
+                    <h3>Sustainability Initiatives</h3>
+                    <p>Implement eco-friendly practices in event planning and execution to align with global sustainability trends and position K-Pre as a forward-thinking company.</p>
+                </div>
+                
+                <div class="plan-card">
+                    <div class="plan-number">4</div>
+                    <h3>Geographic Expansion</h3>
+                    <p>Explore opportunities beyond the local community to include regional, national, or international markets, tailoring services to diverse cultural preferences.</p>
+                </div>
+                
+                <div class="plan-card">
+                    <div class="plan-number">5</div>
+                    <h3>Strategic Partnerships</h3>
+                    <p>Form alliances with businesses in complementary sectors to offer bundled services, enhancing client experience and expanding market reach.</p>
+                </div>
+                
+                <div class="plan-card">
+                    <div class="plan-number">6</div>
+                    <h3>Digital Transformation</h3>
+                    <p>Strengthen K-Pre's online presence with a dynamic digital marketing strategy, showcasing successful events and leveraging client testimonials.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="section testimonial">
+        <div class="testimonial-bg"></div>
+        
+        <div class="container">
+            <div class="testimonial-content">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">K-Pre is my go-to place to get things done, quickly and efficiently. Not having to worry if things will be executed exactly as I want it and on time, is the reason I only use them.</p>
+                <div class="testimonial-author">Online Coaching & Communications</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Create Something Amazing?</h2>
+            <p>Whether it's a corporate event or an intimate celebration, we're here to bring your vision to life</p>
+            <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <i class="fas fa-sparkles" style="color: white; font-size: 1.5rem;"></i>
+                    </div>
+                    <div>
+                        <h3>K-Pre Projects & Events</h3>
+                        <p>Pty Ltd • Reg: 2020/857526/07</p>
+                    </div>
+                </div>
+                <div class="footer-text">
+                    <p>© 2025 K-Pre Projects & Events. All rights reserved.</p>
+                    <p>Crafted with passion in Kathu, Northern Cape</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            
+            // Change icon based on menu state
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Set active navigation link based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(currentSection) || 
+                    (currentSection === '' && link.getAttribute('href') === 'about.html')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
